@@ -1,5 +1,7 @@
 import { Component } from 'react'
 import NewsItem from './NewsItem'
+import '../style.css'
+import '../NewsApp.css'
 
 class NewsApp extends Component {
     constructor(props) {
@@ -11,7 +13,7 @@ class NewsApp extends Component {
     }
 
     componentDidMount() {
-        const apiKey = 'YOUR API KEY HERE'
+        const apiKey = '8769a3cc8a9c47b2b599026fd9606f88'
 
         // fetch 하기에 좋은 메소드
         fetch(`http://newsapi.org/v2/top-headlines?country=kr&apiKey=${apiKey}`)
@@ -26,7 +28,7 @@ class NewsApp extends Component {
 
     render() {
         return (
-            <div>
+            <div id="news-app">
                 {
                     this.state.articles.length === 0
                         ? <h1>표시할 뉴스가 없습니다.</h1>
@@ -39,10 +41,8 @@ class NewsApp extends Component {
                                     </li>)
                                 })
                             }
-                            ​
                         </ul>
                 }
-                ​
             </div>
         );
     }
